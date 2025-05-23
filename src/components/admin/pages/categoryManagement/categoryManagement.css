@@ -1,0 +1,151 @@
+.category-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    margin: 20px;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.category-header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.category-table {
+    width: 100% !important;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.category-table th, .category-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.category-actions button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+}
+
+.btn-delete {
+    color: #fff;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 4px;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.btn-add {
+    max-width: 20%;
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #eda820f0;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.add-category-form {
+
+    margin: 0 auto;
+    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+}
+
+.add-category-form input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.add-category-form input:focus {
+    border-color: #4CAF50; /* Màu khi focus vào input */
+}
+
+.add-category-form button {
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-category-form .btn-save {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.add-category-form .btn-save:hover {
+    background-color: #45a049; /* Màu khi hover vào button */
+}
+
+.add-category-form .btn-cancel {
+    background-color: #f44336;
+    color: white;
+}
+
+.add-category-form .btn-cancel:hover {
+    background-color: #e53935; /* Màu khi hover vào button */
+}
+
+.add-category-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.add-category-form button:not(:disabled):active {
+    transform: translateY(2px); /* Tạo hiệu ứng nhấn button */
+}

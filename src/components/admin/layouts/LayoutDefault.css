@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  font-weight: 800px;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+}
+.sidebar {
+  width: 250px; /* Hoặc chiều rộng bạn muốn */
+  background-color: #333;
+}
+
+.breadcrumb {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: calc(100% - 250px);
+}
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  background-color: #f5f5f5;
+}

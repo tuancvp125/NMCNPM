@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a7a898b6-dc25-4206-8246-6b2ce880e2a9" name="Changes" comment="console log">
+      <change afterPath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/dto/Request/VerifyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/service/TwoFactorAuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/TwoFactorPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/VerifyOtp.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Web-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Web-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BE/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/dto/Response/AuthenticationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/dto/Response/AuthenticationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/service/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/service/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/backend/ecommerce/service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/axios/axios.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/axios/axios.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/axios/user.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/axios/user.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Login.jsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;tuancvp125&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/tuancvp125/Web-Project.git&quot;,
+    &quot;accountId&quot;: &quot;fc4e0f6a-4612-4dc9-a434-313a99a854b2&quot;
+  }
+}</component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="D:\PHP\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2wfnyJYoUvHuscU1ImwFtDa2sKt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tuan&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="console log">
+      <option name="closed" value="true" />
+      <created>1746388799033</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1746388799033</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a7a898b6-dc25-4206-8246-6b2ce880e2a9" name="Changes" comment="console log" />
+      <created>1746441750708</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1746441750708</updated>
+      <workItem from="1746441751529" duration="9181000" />
+      <workItem from="1746583446690" duration="41163000" />
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="console log" />
+    <option name="LAST_COMMIT_MESSAGE" value="console log" />
+  </component>
+</project>

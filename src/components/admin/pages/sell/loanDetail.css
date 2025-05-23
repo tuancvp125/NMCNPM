@@ -1,0 +1,173 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.order-status {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 15px 20px 10px;
+    padding: 10px;
+}
+
+.order-header {
+    text-align: left;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    padding: 20px;
+}
+
+.step-completed {
+    text-align: center;
+    position: relative;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto;
+}
+
+.arrow {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.line {
+    width: 3px;
+    height: 20px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 72%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.arrow-content {
+    width: 120px;
+    height: 22px;
+    margin-left: -10%;
+}
+
+.play-left,
+.play-right {
+    position: absolute;
+    height: 22px;
+}
+
+.play-left {
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid white; 
+    left: -6%;
+}
+
+.play-right {
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid; 
+    right: -7%;
+}
+
+
+.loan-title {
+    white-space: nowrap;
+}
+
+.label {
+    font-size: 14px;
+}
+
+.actions {
+    text-align: left;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.loan-item {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.loan-text {
+    text-align: left;
+    color: #C00000;
+    margin-bottom: 6px;
+}
+
+.loan-content {
+    display: flex;
+    gap: 20px;
+}
+
+.loan-col {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-2 {
+    color: #C00000;
+    text-align: right;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-image img {
+    width: 100px;
+    height: 100px;
+}
+
+.product-details {
+    text-align: left;
+    width: 45%;
+}
+
+.product-details .product-name {
+    font-weight: bold;
+}
+
+.product-quantity input {
+    width: 40px;
+    text-align: center;
+}
+
+.product-total {
+    color: #C00000;
+    font-weight: bold;
+}
+
+.loan-btn {
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: white;
+}

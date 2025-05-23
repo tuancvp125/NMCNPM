@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.signup-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+.signup-left {
+  width: 40%;
+  height: 100vh;
+  background-color: wheat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.signup-logo {
+  font-size: 40px;
+  color: white;
+}
+
+.signupToLogin-btn {
+  width: 300px;
+  padding: 10px 0px;
+  text-align: center;
+  background-color: #fefefe;
+  border-radius: 50px;
+  color: #1f1f1f;
+  font-weight: 600;
+}
+
+.signup-right {
+  width: 60%;
+  height: 100vh;
+  background-color: #fefefe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.signup-text {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.signup-form {
+  width: 100%;
+  margin-top: 20px;
+  color: #1f1f1f;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.signup-label {
+  margin: 0 20%;
+}
+
+.signup-form > input {
+  width: 60%;
+  padding: 10px;
+  margin: 8px auto;
+  border: 1px solid #1f1f1f;
+  color: #1f1f1f;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.signup-form > input:-webkit-autofill {
+  background-color: #fefefe !important;
+  -webkit-box-shadow: 0 0 0 1000px #fefefe inset !important;
+  color: #1f1f1f !important;
+  -webkit-text-fill-color: #1f1f1f !important;
+}
+
+.signup-form > input:nth-of-type(1) {
+  margin-bottom: 15px;
+}
+
+.signup-password-container {
+  position: relative;
+  width: 60%;
+  text-align: center;
+}
+
+.signup-password-container > input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 33%;
+  border: 1px solid #1f1f1f;
+  color: #1f1f1f;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.signup-password-container > input:nth-of-type(1) {
+  margin-bottom: 15px;
+}
+
+.signup-toggle-password {
+  position: absolute;
+  right: -30%;
+  top: 45%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #0a0909; 
+}
+
+.toggle-password:hover {
+  color: #fefefe; 
+}
+
+.signup-btn {
+  width: 45%;
+  padding: 10px 0px;
+  text-align: center;
+  background-color: wheat;
+  border-radius: 50px;
+  color: #fefefe;
+  font-weight: 600;
+  margin: 3% auto 0;
+  cursor: pointer;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}

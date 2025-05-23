@@ -1,0 +1,219 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.product-container {
+    width: 100%;
+    height: 100vh;
+    padding: 20px 0 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-body {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-header {
+    width: 100%;
+}
+
+.product-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.pro-con-left {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-body .product-header h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.product-search {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    font-size: 14px;
+    color: black;
+}
+
+.product-search input {
+    width: 100%;
+    outline: none;
+    border: none;
+    line-height: 20px;
+}
+
+.product-body .btn-add {
+    max-width: 20%;
+    text-decoration: none;
+    padding: 8px 16px;
+    background-color: #eda820f0;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-body .btn-add:hover {
+    background-color: #edb23ef0;
+}
+
+.product-search:nth-of-type(2) {
+    position: relative;
+    cursor: pointer;
+}
+
+.icon-down {
+    position: absolute;
+    top: 36%;  
+    right: 13%; /* Đảm bảo nó nằm ở phía bên phải */
+    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+}
+
+.category-selection {
+    width: 200px;
+    border-radius: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    background: white;
+    z-index: 100;
+    top: 49%;
+    right: 12%; /* Đảm bảo nó nằm ở phía bên phải */
+    transform: translateY(-50%); /* Căn giữa theo chiều dọc */
+}
+
+.category-selection li {
+    padding: 8px;
+    cursor: pointer;
+}
+.category-selection li:hover {
+    background-color: #f0f0f0;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.product-table th, .product-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+.product-table th {
+    background-color: #f9f9f9;
+    color: #333;
+    font-weight: 600;
+}
+
+.product-table td {
+    color: #666;
+}
+
+.product-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.product-table .product-btn {
+    display: flex;
+    gap: 8px;
+}
+
+.table-cell {
+    white-space: nowrap;       /* Ngăn xuống dòng */
+    overflow: hidden;          /* Ẩn nội dung vượt quá */
+    text-overflow: ellipsis;   /* Hiển thị dấu "..." */
+    max-width: 150px;          /* Đặt chiều rộng tối đa */
+}
+
+.btn-edit, .btn-delete {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 4px;
+    color: white;
+    font-size: 12px;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background-color: #17a2b8;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    border: 1px solid;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    margin: 0 10px;
+    font-size: 14px;
+}

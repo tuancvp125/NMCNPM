@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.user-edit {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: left;
+    padding: 20px 15px;
+    font-size: 14px;
+    gap: 20px;
+}
+
+.user-edit label {
+    display: flex;
+    gap: 10px;
+}
+
+.user-edit span {
+    width: 80px;
+}
+
+.user-edit input {
+    outline: none;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

@@ -17,24 +17,28 @@ async function getAllProductApi(authToken) {
     
 }
 
-async function createProductApi(authToken, categoryId, name, image_1, price, description, quantity) {
-    const url = `${API_URL}/admin/products/add?categoryId=${categoryId}`; // Đường dẫn API
-    const token = authToken; // Thay authToken bằng giá trị token hợp lệ
+async function createProductApi(authToken, categoryId, name, image_1, price, description, quantity, color, size, material, productCondition) {
+    const url = `${API_URL}/admin/products/add?categoryId=${categoryId}`;
+    const token = authToken;
 
     try {
         const response = await axios.post(
             url,
             {
-                name,        // Tên sản phẩm
-                image_1,     // Hình ảnh sản phẩm
-                price,       // Giá
-                description, // Mô tả
-                quantity     // Số lượng
+                name,
+                image_1,
+                price,
+                description,
+                quantity,
+                color,
+                size,
+                material,
+                productCondition
             },
             {
                 headers: {
-                    Authorization: `Bearer ${token}`, // Bearer Token
-                    "Content-Type": "application/json" // Định dạng JSON
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json"
                 }
             }
         );
@@ -47,23 +51,27 @@ async function createProductApi(authToken, categoryId, name, image_1, price, des
     }
 }
 
-async function updateProductApi(authToken, categoryId, id, name, price, description, quantity) {
-    const url = `${API_URL}/admin/products/update?categoryId=${categoryId}`; // Đường dẫn API
+async function updateProductApi(authToken, categoryId, id, name, price, description, quantity, color, size, material, productCondition) {
+    const url = `${API_URL}/admin/products/update?categoryId=${categoryId}`;
 
     try {
         const response = await axios.put(
             url,
             {
-                id,          // ID sản phẩm
-                name,        // Tên sản phẩm
-                price,       // Giá sản phẩm
-                description, // Mô tả sản phẩm
-                quantity     // Số lượng sản phẩm
+                id,
+                name,
+                price,
+                description,
+                quantity,
+                color,
+                size,
+                material,
+                productCondition
             },
             {
                 headers: {
-                    Authorization: `Bearer ${authToken}`, // Bearer Token
-                    "Content-Type": "application/json"    // Định dạng JSON
+                    Authorization: `Bearer ${authToken}`,
+                    "Content-Type": "application/json"
                 }
             }
         );

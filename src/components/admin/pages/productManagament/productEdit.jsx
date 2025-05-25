@@ -14,15 +14,19 @@ export default function ProductEdit() {
         price: existingProduct.price || "",
         quantity: existingProduct.quantity || "",
         description: existingProduct.description || "",
+        color: existingProduct.color || "",
+        size: existingProduct.size || "",
+        material: existingProduct.material || "",
+        productCondition: existingProduct.productCondition || "",
         category: existingProduct.category?.name || "",
     });
 
     const [preview] = useState(
-        existingProduct.image_1?.startsWith("data:image/") 
-            ? existingProduct.image_1 
-            : existingProduct.image_1 
-            ? `data:image/jpeg;base64,${existingProduct.image_1}` 
-            : null
+        existingProduct.image_1?.startsWith("data:image/")
+            ? existingProduct.image_1
+            : existingProduct.image_1
+                ? `data:image/jpeg;base64,${existingProduct.image_1}`
+                : null
     );
 
     const [submitted, setSubmitted] = useState(false);
@@ -45,9 +49,13 @@ export default function ProductEdit() {
                 1, // Thay `1` bằng `categoryId` phù hợp
                 formData.id,
                 formData.name,
-                parseFloat(formData.price), // Chuyển đổi giá trị sang số
+                parseFloat(formData.price),
                 formData.description,
-                parseInt(formData.quantity, 10) // Chuyển đổi giá trị sang số nguyên
+                parseInt(formData.quantity, 10),
+                formData.color,
+                formData.size,
+                formData.material,
+                formData.productCondition
             );
 
             setSubmitted(true);
@@ -113,6 +121,46 @@ export default function ProductEdit() {
                             id="category"
                             name="category"
                             value={formData.category}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label htmlFor="color">
+                        <span>Màu sắc</span>
+                        <input
+                            type="text"
+                            id="color"
+                            name="color"
+                            value={formData.color}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label htmlFor="size">
+                        <span>Kích cỡ</span>
+                        <input
+                            type="text"
+                            id="size"
+                            name="size"
+                            value={formData.size}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label htmlFor="material">
+                        <span>Chất liệu</span>
+                        <input
+                            type="text"
+                            id="material"
+                            name="material"
+                            value={formData.material}
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <label htmlFor="productCondition">
+                        <span>Tình trạng</span>
+                        <input
+                            type="text"
+                            id="productCondition"
+                            name="productCondition"
+                            value={formData.productCondition}
                             onChange={handleChange}
                         />
                     </label>

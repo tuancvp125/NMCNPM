@@ -92,6 +92,10 @@ const Product = () => {
             {Intl.NumberFormat().format(productData.price)}
             {currency}
           </p>
+          <p className="font-sans mt-5 text-gray-1000 md:w-4/5">Màu sắc: {productData.color}</p>
+          <p className="font-sans mt-5 text-gray-1000 md:w-4/5">Kích cỡ: {productData.size}</p>
+          <p className="font-sans mt-5 text-gray-1000 md:w-4/5">Chất liệu: {productData.material}</p>
+          <p className="font-sans mt-5 text-gray-1000 md:w-4/5">Tình trạng: {productData.productCondition}</p>
           <p className="font-sans mt-5 text-gray-500 md:w-4/5">{productData.description}</p>
           <div className="flex flex-col gap-4 my-8">
             <p className='font-sans'>Số lượng</p>
@@ -127,8 +131,6 @@ const Product = () => {
           </div>
           <hr className="mt-8 sm:w-4/5" />
           <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
-            <p className="font-sans">100% Chất liệu tự nhiên.</p>
-            <p className="font-sans">Thanh toán bằng tiền mặt khi nhận hàng.</p>
             <p className="font-sans">Đổi trả dễ dàng trong vòng 7 ngày.</p>
           </div>
         </div>

@@ -5,7 +5,7 @@ services:
     image: backend:v1
     restart: always
     ports:
-      - "82:82"
+      - "9999:9999"
     volumes:
       - ./docker_application.properties:/app/application.properties:ro
       - ./nginx.conf:/etc/nginx/nginx.conf

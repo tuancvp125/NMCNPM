@@ -52,6 +52,10 @@ public class ProductService {
             existingProduct.setDescription(product.getDescription());
             existingProduct.setPrice(product.getPrice());
             existingProduct.setQuantity(product.getQuantity());
+            existingProduct.setColor(product.getColor());
+            existingProduct.setSize(product.getSize());
+            existingProduct.setMaterial(product.getMaterial());
+            existingProduct.setProductCondition(product.getProductCondition());
             existingProduct.setImage_1(product.getImage_1()!=null? product.getImage_1() : existingProduct.getImage_1());
             existingProduct.setImage_2(product.getImage_2()!=null? product.getImage_2() : existingProduct.getImage_2());
             existingProduct.setImage_3(product.getImage_3()!=null? product.getImage_3() : existingProduct.getImage_3());

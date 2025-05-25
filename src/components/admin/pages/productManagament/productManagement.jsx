@@ -202,6 +202,10 @@ export default function ProductManagement() {
                             <th>Số lượng</th>
                             <th>Đã bán</th>
                             <th>Mô tả</th>
+                            <th>Màu sắc</th>
+                            <th>Kích cỡ</th>
+                            <th>Chất liệu</th>
+                            <th>Tình trạng</th>
                             <th>Ảnh minh họa</th>
                             <th>Danh mục</th>
                             <th>Hành động</th>
@@ -217,6 +221,10 @@ export default function ProductManagement() {
                                     <td>{item.quantity}</td>
                                     <td>{item.b_quantity}</td>
                                     <td className="table-cell">{item.description}</td>
+                                    <td>{item.color}</td>
+                                    <td>{item.size}</td>
+                                    <td>{item.material}</td>
+                                    <td>{item.productCondition}</td>
                                     <td>
                                         {item.image_1 ? (
                                             <img
@@ -247,7 +255,7 @@ export default function ProductManagement() {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="8" style={{ textAlign: "center" }}>
+                                <td colSpan="12" style={{ textAlign: "center" }}>
                                     Không có sản phẩm nào để hiển thị.
                                 </td>
                             </tr>

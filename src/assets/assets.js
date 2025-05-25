@@ -56,10 +56,13 @@ export function formatProductData(product) {
         sizes: ["S", "M", "L"],
         date: Date.now(),
         bestseller: true,
-        quantity: 0, // Bổ sung trường không có trong cấu trúc ban đầu
+        quantity: 0,
+        color: "Multiple Colors",
+        size: "M",
+        material: "Cotton",
+        productCondition: "Unknown"
     };
 
-    // Hàm xử lý một đối tượng sản phẩm
     const formatSingleProduct = (prod) => {
         const images = [];
         for (let i = 1; i <= 5; i++) {
@@ -79,6 +82,10 @@ export function formatProductData(product) {
             date: prod.date || defaultData.date,
             bestseller: prod.bestseller ?? defaultData.bestseller,
             quantity: prod.quantity || defaultData.quantity,
+            color: prod.color || defaultData.color,
+            size: prod.size || defaultData.size,
+            material: prod.material || defaultData.material,
+            productCondition: prod.productCondition || defaultData.productCondition
         };
     };
 

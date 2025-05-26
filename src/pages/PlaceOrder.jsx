@@ -4,7 +4,7 @@ import CartTotal from '../components/CartTotal';
 import { ShopContext } from '../context/ShopContext';
 // Sửa import: CheckOutCartApi là cho COD, VNPay cho VNPay.
 // Thêm initiateSec404PaymentCheckout cho Sec404
-import { CheckOutCartApi, Payment as QRPayment, VNPay, initiateSec404PaymentCheckout } from '../axios/order';
+import { clearCart, CheckOutCartApi, Payment as QRPayment, VNPay, initiateSec404PaymentCheckout } from '../axios/order';
 // import { useNavigate } from 'react-router-dom'; // navigate đã có trong context
 
 import { toast } from 'react-toastify';
@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 const PlaceOrder = () => {
   const [method, setMethod] = useState('cod');
   // Lấy navigate từ context, hoặc nếu không có thì import và dùng const navigate = useNavigate();
-  const { navigate, total, setQRCode, setCartItems, cartItems: contextCartItems, clearCart } = useContext(ShopContext);
+  const { navigate, total, setQRCode, setCartItems, cartItems: contextCartItems } = useContext(ShopContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(''); // State để hiển thị lỗi trên UI
 
@@ -104,13 +104,12 @@ const PlaceOrder = () => {
 
 
         if (method === 'cod') {
-            // Gọi API CheckOutCartApi (POST /orders/checkout) cho COD
-            // API này hiện tại nhận paymentMethod là string mô tả
+
             const orderResponse = await CheckOutCartApi(userId, cartId, addressPayload, "Thanh toán khi nhận hàng");
             if (localStorage.getItem('cartId')) localStorage.removeItem('cartId'); // Xóa cartId cụ thể nếu có
             localStorage.removeItem('defaultCartId'); // Xóa cả defaultCartId
-            setCartItems({}); // Reset cart trên UI (context)
-            clearCart(cartId); // Gọi hàm clearCart từ context để xóa trên server nếu cần thiết
+            setCartItems({}); 
+            // clearCart(cartId); // Gọi hàm clearCart từ context để xóa trên server nếu cần thiết
             navigate(`/thank-you?orderId=${orderResponse.orderId || orderResponse}&method=COD`); // Backend trả về orderId hoặc chỉ ID
             toast.success("Đặt hàng COD thành công!");
 
@@ -127,7 +126,7 @@ const PlaceOrder = () => {
             if (localStorage.getItem('cartId')) localStorage.removeItem('cartId');
             localStorage.removeItem('defaultCartId');
             setCartItems({});
-            clearCart(cartId);
+            // clearCart(cartId);
             navigate('/pay'); // Chuyển đến trang hiển thị QR
             toast.success("Đơn hàng đã được tạo. Vui lòng quét mã QR để thanh toán.");
 
@@ -140,7 +139,7 @@ const PlaceOrder = () => {
             if (localStorage.getItem('cartId')) localStorage.removeItem('cartId');
             localStorage.removeItem('defaultCartId');
             setCartItems({});
-            clearCart(cartId);
+            // clearCart(cartId);
             window.location.href = vnpayUrl; // Redirect đến URL thanh toán VNPay
 
         } else if (method === 'sec404') {

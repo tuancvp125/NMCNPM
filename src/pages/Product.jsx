@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
 import { CreateCartApi, GetCartApi } from '../axios/order';
+import WebChat from '../components/WebChat';
 
 const Product = () => {
   const { productId } = useParams();
@@ -12,6 +13,11 @@ const Product = () => {
   const [image, setImage] = useState('');
   const [quantity, setQuantity] = useState(1); // Quản lý số lượng
   const [error, setError] = useState(null);
+  // Quản lý chat
+  const [showChat, setShowChat] = useState(false);
+  const chatRef = useRef(null);
+
+  const userEmail = localStorage.getItem("userEmail");
   const userId = localStorage.getItem('userId');
   const cartId = localStorage.getItem('defaultCartId');
 
@@ -28,6 +34,8 @@ const Product = () => {
   useEffect(() => {
     fetchProductData();
   }, [productId, products]);
+
+  //Add chat functionality
 
   const handleCreateCart = async () => {
     try {
@@ -124,10 +132,26 @@ const Product = () => {
             </button>
             <button
               onClick={() => handleCreateCart(productData._id, quantity)}
-              className="font-sans bg-black text-white px-8 py-3 text-sm active:bg-gray-700"
+              className="font-sans bg-black text-white px-8 py-3 text-sm active:bg-gray-700 mr-1"
             >
               MUA NGAY
             </button>
+            <button
+              onClick={() => {
+              setShowChat(prev => {
+              const next = !prev;
+              if (next) {
+              setTimeout(() => {
+              chatRef.current?.scrollIntoView({ behavior: 'smooth' });
+              }, 100); // delay để khung chat render
+            }
+            return next;
+            });
+            }}
+            className="font-sans bg-black text-white px-8 py-3 text-sm active:bg-gray-700"
+            >
+          {showChat ? 'Đóng chat' : 'Chat với admin'}
+          </button>
           </div>
           <hr className="mt-8 sm:w-4/5" />
           <div className="text-sm text-gray-500 mt-5 flex flex-col gap-1">
@@ -159,6 +183,13 @@ const Product = () => {
         category={productData.category}
         subCategory={productData.subCategory}
       />
+
+      {/* Web Chat Ticket */}
+      {showChat && (
+      <div ref={chatRef} className="mt-12 border-t pt-6">
+      <WebChat productId={productId} userEmail={userEmail} />
+      </div>
+      )}
     </div>
   ) : (
     <div className="opacity-0"></div>

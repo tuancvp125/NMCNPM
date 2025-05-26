@@ -19,12 +19,12 @@ export const getChatHistory = async (token, userEmail, productId) => {
 };
 
 // Gửi tin nhắn
-export const sendChatMessage = async (token, userEmail, productId, content) => {
+export const sendChatMessage = async (token, userEmail, productId, content, isFromAdmin) => {
   const res = await axios.post(`${API_URL}/chat/send`, {
     userEmail,
     productId,
     content,
-    isFromAdmin: true
+    isFromAdmin
   }, {
     headers: {
       Authorization: `Bearer ${token}`,

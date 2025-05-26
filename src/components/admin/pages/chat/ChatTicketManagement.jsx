@@ -21,7 +21,7 @@ const ChatTicketManagement = () => {
   const loadTickets = async () => {
     try {
       const data = await getAllChatTickets(token);
-      console.log('Danh sách ticket:', data);
+      console.log
       setTickets(data);
     } catch (err) {
       console.error('Lỗi khi tải danh sách ticket:', err);
@@ -41,7 +41,7 @@ const ChatTicketManagement = () => {
   const handleSend = async () => {
     if (!reply.trim()) return;
     try {
-      await sendChatMessage(token, selectedTicket.userEmail, selectedTicket.productId, reply);
+      await sendChatMessage(token, selectedTicket.userEmail, selectedTicket.productId, reply, true);
       setReply('');
       selectTicket(selectedTicket); // refresh messages
     } catch (err) {

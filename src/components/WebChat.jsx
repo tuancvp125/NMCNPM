@@ -13,7 +13,7 @@ const WebChat = ({ productId, userEmail }) => {
     const fetchChat = async () => {
       try {
         const token = localStorage.getItem('authToken');
-        if (!token) throw new Error("Token not found"); //Check ky hon o day
+        if (!token) throw new Error("Token not found"); //Check ky hon o
 
         const data = await getChatHistory(token, userEmail, productId);
         setChatLog(data);
@@ -32,7 +32,7 @@ const WebChat = ({ productId, userEmail }) => {
       const token = localStorage.getItem('authToken');
       if (!token) throw new Error("Token not found");
 
-      await sendChatMessage(token, userEmail, productId, message);
+      await sendChatMessage(token, userEmail, productId, message, false);
       setMessage('');
       setRefresh(prev => !prev);
     } catch (err) {
@@ -53,9 +53,9 @@ const WebChat = ({ productId, userEmail }) => {
           <p className="italic text-gray-500">Chưa có tin nhắn.</p>
         ) : (
           chatLog.map((msg, idx) => (
-            <div key={idx} className={`mb-2 ${msg.isFromAdmin ? 'text-right' : 'text-left'}`}>
+            <div key={idx} className={`mb-2 ${msg.isFromAdmin ? 'text-left' : 'text-right'}`}>
               <span className={`inline-block px-3 py-2 rounded-lg max-w-[70%] break-words ${
-                msg.isFromAdmin ? 'bg-blue-100 text-blue-800' : 'bg-gray-200 text-gray-900'
+                !msg.isFromAdmin ? 'bg-blue-100 text-blue-800' : 'bg-gray-200 text-gray-900'
               }`}>
                 {msg.content}
               </span>

@@ -35,15 +35,15 @@ public class ChatService {
 
         ChatMessage message = ChatMessage.builder()
                 .ticket(ticket)
-                .senderEmail(request.isFromAdmin() ? "admin" : request.getUserEmail())
+                .senderEmail(request.getIsFromAdmin() ? "admin" : request.getUserEmail())
                 .content(request.getContent())
-                .isFromAdmin(request.isFromAdmin())
+                .isFromAdmin(request.getIsFromAdmin())
                 .build();
 
         return messageRepo.save(message);
     }
 
-    public List<ChatMessage> getMessages(String userEmail, Long productId) {
+    public List<ChatMessage> getMessages(String userEmail, String productId) {
         Optional<ChatTicket> ticketOpt = ticketRepo.findByUserEmailAndProductId(userEmail, String.valueOf(productId));
         return ticketOpt.map(ticket -> messageRepo.findByTicketOrderByTimestampAsc(ticket)).orElse(List.of());
     }

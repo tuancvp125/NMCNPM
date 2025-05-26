@@ -22,6 +22,7 @@ public class ChatController {
     // Gửi tin nhắn mới
     @PostMapping("/send")
     public ResponseEntity <ChatMessage> sendMessage(@RequestBody ChatMessageRequest messageDTO) {
+        System.out.println("Received messageDTO: " + messageDTO);
         ChatMessage message = chatService.saveMessage(messageDTO);
         return ResponseEntity.ok(message);
     }
@@ -30,7 +31,7 @@ public class ChatController {
     @GetMapping("/history")
     public ResponseEntity <List<ChatMessage>> getChatHistory(
             @RequestParam String userEmail,
-            @RequestParam Long productId) {
+            @RequestParam String productId) {
 
         List<ChatMessage> messages = chatService.getMessages(userEmail, productId);
         if (messages.isEmpty()) {

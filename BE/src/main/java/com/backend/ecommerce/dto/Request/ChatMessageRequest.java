@@ -9,5 +9,5 @@ public class ChatMessageRequest {
     private String userEmail;
     private String productId;
     private String content;
-    private boolean isFromAdmin;
+    private Boolean isFromAdmin;
 }

@@ -20,7 +20,7 @@ const Navbar = () => {
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
             <NavLink to='/collection' className='flex flex-col items-center gap-1'>
-            <p className="font-sans">BỘ SƯU TẬP</p>
+            <p className="font-sans">SẢN PHẨM</p>
                 <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
             </NavLink>
             <NavLink to='/about' className='flex flex-col items-center gap-1'>

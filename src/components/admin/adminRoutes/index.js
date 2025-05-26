@@ -9,6 +9,7 @@ import ProductManagement from "../productManagament/productManagement";
 import ProductCreate from "../productManagament/productCreate";
 import ProductEdit from "../productManagament/productEdit";
 import LoanDetail from "../sell/loanDetail";
+import ChatTicketManagement from "../chat/ChatTicketManagement";
 
 export default function HomeAdmin() {
     return (
@@ -25,6 +26,7 @@ export default function HomeAdmin() {
                     <Route path="/product-management/product-create" element={<ProductCreate />} />
                     <Route path="/product-management/product-edit" element={<ProductEdit />} />
                     <Route path="/loan/loan-detail" element={<LoanDetail />} />
+                    <Route path="/chat-management" element={<ChatTicketManagement />} />
                 </Routes>
             </div>
         </Router>

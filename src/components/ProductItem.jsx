@@ -2,13 +2,13 @@ import React, { useContext } from 'react'
 import { ShopContext } from '../context/ShopContext'
 import {Link} from 'react-router-dom'
 
-const ProductItem = ({id,image,name,price}) => {
+const ProductItem = ({id,image,name,price, color, size, material, productCondition}) => {
 
     const {currency} = useContext(ShopContext);
 
   return (
     <Link className='text-gray-700 cursor-pointer' to={`/product/${id}`}>
-      <div className='overflow-hidden' 
+      <div className='overflow-hidden'
       style={{
         width: '100%',
         aspectRatio: '1 / 1',
@@ -21,6 +21,10 @@ const ProductItem = ({id,image,name,price}) => {
       </div>
       <p className='pt-3 pb-1 text-sm'>{name}</p>
       <p className='text-sm font-medium'>{Intl.NumberFormat().format(price)}{currency}</p>
+      <p className='text-sm'>Màu: {color}</p>
+      <p className='text-sm'>Kích cỡ: {size}</p>
+      <p className='text-sm'>Chất liệu: {material}</p>
+      <p className='text-sm'>Tình trạng: {productCondition}</p>
     </Link>
   )
 }

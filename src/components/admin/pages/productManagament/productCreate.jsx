@@ -23,11 +23,15 @@ export default function ProductCreate() {
         price: '',
         quantity: '',
         description: '',
+        color: '',
+        size: '',
+        material: '',
+        productCondition: '',
         image: null,
         category: ''
     });
     const [preview, setPreview] = useState(null);
-    const [isLoading, setIsLoading] = useState(false); // Thêm state cho quá trình tải ảnh
+    const [isLoading, setIsLoading] = useState(false);
     const storedToken = localStorage.getItem('authToken');
 
     const categoryListRef = useRef(null); // Dùng để kiểm tra nhấp bên ngoài danh sách
@@ -99,19 +103,40 @@ export default function ProductCreate() {
             price: formData.price,
             quantity: formData.quantity,
             description: formData.description,
+            color: formData.color,
+            size: formData.size,
+            material: formData.material,
+            productCondition: formData.productCondition || "New",
             categoryId: selectedCategory.id,
-            image: formData.image // Đây là chuỗi Base64
+            image: formData.image
+        };
+
+        // Create a clean object with only the necessary data
+        const apiData = {
+            name: productData.name,
+            image_1: productData.image,
+            price: productData.price,
+            description: productData.description,
+            quantity: productData.quantity,
+            color: productData.color,
+            size: productData.size,
+            material: productData.material,
+            productCondition: productData.productCondition
         };
 
         try {
             const response = await createProductApi(
                 storedToken,
                 productData.categoryId,
-                productData.name,
-                productData.image,
-                productData.price,
-                productData.description,
-                productData.quantity
+                apiData.name,
+                apiData.image_1,
+                apiData.price,
+                apiData.description,
+                apiData.quantity,
+                apiData.color,
+                apiData.size,
+                apiData.material,
+                apiData.productCondition
             );
             console.log("Tạo sản phẩm thành công:", response);
             alert("Tạo sản phẩm thành công!");
@@ -122,7 +147,7 @@ export default function ProductCreate() {
             console.error("Lỗi khi tạo sản phẩm:", error);
             alert("Có lỗi xảy ra khi tạo sản phẩm!");
         }
-    };    
+    };
 
     return (
         <div className="product-container">
@@ -167,6 +192,22 @@ export default function ProductCreate() {
                     <label htmlFor="description">
                         <span>Mô tả</span>
                         <textarea id="description" name="description" value={formData.description} onChange={handleChange} />
+                    </label>
+                    <label htmlFor="color">
+                        <span>Màu sắc</span>
+                        <input type="text" id="color" name="color" value={formData.color} onChange={handleChange} />
+                    </label>
+                    <label htmlFor="size">
+                        <span>Kích cỡ</span>
+                        <input type="text" id="size" name="size" value={formData.size} onChange={handleChange} />
+                    </label>
+                    <label htmlFor="material">
+                        <span>Chất liệu</span>
+                        <input type="text" id="material" name="material" value={formData.material} onChange={handleChange} />
+                    </label>
+                    <label htmlFor="productCondition">
+                        <span>Tình trạng</span>
+                        <input type="text" id="productCondition" name="productCondition" value={formData.productCondition} onChange={handleChange} />
                     </label>
                     <label htmlFor="image">
                         <span>Ảnh minh họa</span>

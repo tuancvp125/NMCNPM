@@ -15,9 +15,9 @@ const LatestCollection = () => {
   return (
     <div className='my-10'>
         <div className='font-sans text-center py-8 text-3xl'>
-            <Title text1={'SẢN PHẨM'} text2={'MỚI'}/>
+            <Title text1={'SẢN PHẨM'} text2={'MỚI VỀ'}/>
             <p className='font-sans w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-            Khám Phá Bộ Sưu Tập Thể Thao Mới Nhất - Phong Cách Đỉnh Cao, Hiệu Suất Tối Ưu!
+            Khám Phá Các Sản Phẩm Đồ Cũ Mới Cập Bến CyberXes. 
             </p>
         </div>
 
@@ -25,7 +25,7 @@ const LatestCollection = () => {
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
             {
                 latestProducts.map((item,index)=>(
-                    <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
+                    <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} color={item.color} size={item.size} material={item.material} productCondition={item.productCondition} />
                 ))
             }
         </div>

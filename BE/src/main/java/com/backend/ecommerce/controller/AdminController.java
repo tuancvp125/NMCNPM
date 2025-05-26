@@ -1,6 +1,7 @@
 package com.backend.ecommerce.controller;
 
 import com.backend.ecommerce.model.*;
+import com.backend.ecommerce.repository.ChatTicketRepository;
 import com.backend.ecommerce.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,8 @@ import java.util.Map;
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
+    @Autowired
+    private ChatTicketRepository chatTicketRepository;
     @Autowired
     private  UserService userService;
     @Autowired
@@ -124,6 +127,11 @@ public class AdminController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(productQuantity);
+    }
+
+    @GetMapping("/chat/tickets")
+    public ResponseEntity<List<ChatTicket>> getAllChatTickets() {
+        return ResponseEntity.ok().body(chatTicketRepository.findAll());
     }
 
 }

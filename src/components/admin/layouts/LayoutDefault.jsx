@@ -12,6 +12,7 @@ import Sidebar from "../components/Sidebar/Sidebar";
 import Header from "../components/Header/Header";
 import OrderManagement from "../pages/order/Orders";
 import Setting from "../pages/setting/Setting";
+import ChatTicketManagement from "../pages/chat/ChatTicketManagement";
 import "./LayoutDefault.css";
 import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 import CategoryManagement from "../pages/categoryManagement/categoryManagement";
@@ -40,6 +41,7 @@ function LayoutDefault() {
               <Route path="/admin/user-management/user-create" element={<UserCreate />} />
               <Route path="/admin/category-management" element={<CategoryManagement />} />
               <Route path="/admin/setting" element={<Setting />} />
+              <Route path="/admin/chat-management" element={<ChatTicketManagement />} />
             </Routes>
           </div>
         </div>

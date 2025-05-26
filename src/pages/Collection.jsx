@@ -128,6 +128,10 @@ const Collection = () => {
               id={item._id}
               price={item.price}
               image={item.image}
+              color={item.color}
+              size={item.size}
+              material={item.material}
+              productCondition={item.productCondition}
             />
           ))}
         </div>

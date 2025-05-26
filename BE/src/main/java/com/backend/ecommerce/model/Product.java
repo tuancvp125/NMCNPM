@@ -17,6 +17,18 @@ public class Product {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String color;
+
+    @Column(nullable = false)
+    private String size;
+
+    @Column(nullable = false)
+    private String material;
+    
+    @Column(nullable = true)
+    private String productCondition;
+    
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;

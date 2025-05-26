@@ -164,7 +164,22 @@ public class Sec404PaymentController {
             case "success":
                 try {
                     orderService.finalizeOrderAfterSuccessfulPayment(order.getId());
-                    return ResponseEntity.ok("Payment successful");
+                    String redirectUrl = "http://localhost:5173";
+                    String htmlResponse = "<html>" +
+                            "<head>" +
+                            "<meta http-equiv='refresh' content='2;url=" + redirectUrl + "' />" +
+                            "<title>Redirecting...</title>" +
+                            "</head>" +
+                            "<body>" +
+                            "<h2>Payment successful!</h2>" +
+                            "<p>You will be redirected shortly. If not, <a href='" + redirectUrl + "'>click here</a>.</p>" +
+                            "</body>" +
+                            "</html>";
+
+                    return ResponseEntity
+                            .ok()
+                            .header("Content-Type", "text/html; charset=UTF-8")
+                            .body(htmlResponse);
                 } catch (Exception e) {
                     return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error after payment: " + e.getMessage());
                 }

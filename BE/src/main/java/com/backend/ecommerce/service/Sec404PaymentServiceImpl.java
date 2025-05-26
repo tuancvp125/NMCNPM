@@ -25,7 +25,7 @@ public class Sec404PaymentServiceImpl implements Sec404PaymentService {
 
     private final RestTemplate restTemplate;
 
-    @Value("${nginx.url}")
+    @Value("${app.url}")
     private String appBaseUrl;
 
     // Constructor để inject RestTemplate

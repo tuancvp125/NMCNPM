@@ -24,15 +24,16 @@ public class OrderItem {
     private Integer quantity;
 
     private double orderedProductPrice;
+    
+    public void setOrderedProductPrice(double orderedProductPrice) {
+        this.orderedProductPrice = orderedProductPrice;
+    }
 
+    // Getter của nó
     public double getOrderedProductPrice() {
         return orderedProductPrice;
     }
 
-    public void setOrderedProductPrice(Product product) {
-        double price = product.getPrice() * this.getQuantity();
-        this.orderedProductPrice = price;
-    }
 // constructors, getters and setters
 
     public Long getId() {

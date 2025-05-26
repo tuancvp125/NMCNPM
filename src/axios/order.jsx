@@ -295,10 +295,10 @@ async function GetAllOrderApi() {
 /**
  * Khởi tạo thanh toán với Sec404Payment.
  * Sẽ gọi API backend để tạo đơn hàng ban đầu và sau đó lấy URL thanh toán từ Sec404.
- * @param {string} cartId - ID của giỏ hàng.
- * @param {object} address - Đối tượng địa chỉ giao hàng.
- * @param {string} token - JWT token để xác thực.
- * @returns {Promise<object>} - Promise chứa { paymentUrl: "..." } nếu thành công.
+ * @param {string} cartId - ID giỏ hàng của người dùng.
+ * @param {object} address - Địa chỉ giao hàng: { fullName, phone, street, city, district, ... }
+ * @param {string} token - JWT token xác thực người dùng.
+ * @returns {Promise<{ paymentUrl: string }>} - Trả về URL thanh toán nếu thành công.
  */
 const initiateSec404PaymentCheckout = async (cartId, address, token) => {
     try {
@@ -323,7 +323,7 @@ const initiateSec404PaymentCheckout = async (cartId, address, token) => {
         if (errData && typeof errData === 'string') { // Nếu backend trả lỗi là string
              throw new Error(errData);
         }
-        throw errData || error; // Ném lỗi để component xử lý
+        throw errData || error;
     }
 };
 

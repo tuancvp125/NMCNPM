@@ -144,12 +144,12 @@ const PlaceOrder = () => {
             window.location.href = vnpayUrl; // Redirect đến URL thanh toán VNPay
 
         } else if (method === 'sec404') {
-            // GỌI API MỚI CHO SEC404
+
             // API này sẽ: backend tạo order (chưa trừ kho), gọi Sec404, trả về paymentUrl
             const sec404Response = await initiateSec404PaymentCheckout(cartId, addressPayload, authToken);
 
             if (sec404Response && sec404Response.paymentUrl) {
-                // Không xóa cart ở đây, chỉ xóa sau khi thanh toán thành công (backend xử lý)
+
                 // Backend nên xóa cart ID hoặc cart items sau khi callback thành công
                 toast.info('Đang chuyển hướng đến cổng thanh toán Sec404...');
                 window.location.href = sec404Response.paymentUrl;

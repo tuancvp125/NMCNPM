@@ -6,7 +6,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChatMessageRequest {
-    private String sender;
-    private String receiver;
+    private String userEmail;
+    private String productId;
     private String content;
+    private boolean isFromAdmin;
 }

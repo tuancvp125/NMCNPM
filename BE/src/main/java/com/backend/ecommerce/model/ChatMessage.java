@@ -2,6 +2,9 @@ package com.backend.ecommerce.model;
 
 import lombok.*;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -15,6 +18,7 @@ public class ChatMessage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String productId;
 
     private String senderEmail;   // email của user hoặc "admin"
     private String content;
@@ -22,6 +26,11 @@ public class ChatMessage {
     private Boolean isFromAdmin; // true nếu admin gửi, false nếu user gửi
 
     private LocalDateTime timestamp;
+
+    @ManyToOne
+    @JoinColumn(name = "ticket_id")
+    @JsonIgnore // Để tránh vòng lặp vô hạn khi serialize
+    private ChatTicket ticket; //Bug ở chỗ này dcm???
 
     @PrePersist
     public void setTimestamp() {

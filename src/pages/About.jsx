@@ -14,10 +14,10 @@ const About = () => {
       <div className='my-10 flex flex-col md:flex-row gap-16'>
           <img className='w-full md:max-w-[450px]' src={assets.about_img} alt="" />
           <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600'>
-              <p className='font-sans'>Sporter ra đời từ niềm đam mê đổi mới và mong muốn cách mạng hóa cách mọi người mua sắm trực tuyến. Hành trình của chúng tôi bắt đầu với ý tưởng đơn giản: tạo ra một nền tảng nơi khách hàng có thể dễ dàng khám phá, trải nghiệm và mua sắm các sản phẩm thể thao ngay tại nhà.</p>
-              <p className='font-sans'>Từ khi thành lập, Sporter không ngừng nỗ lực để chọn lọc những sản phẩm chất lượng cao, đáp ứng mọi nhu cầu và sở thích. Từ trang phục, giày dép đến phụ kiện thể thao, chúng tôi mang đến bộ sưu tập đa dạng từ những thương hiệu và nhà cung cấp đáng tin cậy.</p>
+              <p className='font-sans'>Sporter ra đời từ niềm đam mê đổi mới và mong muốn cách mạng hóa cách mọi người mua sắm quần áo cũ trực tuyến. Hành trình của chúng tôi bắt đầu với ý tưởng đơn giản: tạo ra một nền tảng nơi khách hàng có thể dễ dàng khám phá, trải nghiệm và mua sắm các sản phẩm 2nd-hand ngay tại nhà.</p>
+              <p className='font-sans'>Từ khi thành lập, CyberXes không ngừng nỗ lực để chọn lọc những sản phẩm chất lượng cao, đáp ứng mọi nhu cầu và sở thích. Từ trang phục, giày dép đến phụ kiện, chúng tôi mang đến bộ sưu tập đa dạng từ những thương hiệu và nhà cung cấp đáng tin cậy.</p>
               <b className='font-sans text-gray-800'>Sứ Mệnh</b>
-              <p className='font-sans'>Sứ mệnh của Sporter là mang đến cho khách hàng sự lựa chọn, tiện lợi và sự tin tưởng. Chúng tôi cam kết mang lại trải nghiệm mua sắm hoàn hảo, vượt xa mong đợi của bạn, từ việc tìm kiếm và đặt hàng cho đến giao hàng và hỗ trợ sau đó.</p>
+              <p className='font-sans'>Sứ mệnh của CyberX là mang đến cho khách hàng sự lựa chọn, tiện lợi và sự tin tưởng. Chúng tôi cam kết mang lại trải nghiệm mua sắm hoàn hảo, vượt xa mong đợi của bạn, từ việc tìm kiếm và đặt hàng cho đến giao hàng và hỗ trợ sau đó.</p>
           </div>
       </div>
 

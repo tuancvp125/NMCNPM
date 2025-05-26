@@ -15,9 +15,9 @@ const Contact = () => {
         <img className='w-full md:max-w-[480px]' src={assets.contact_img} alt="" />
         <div className='flex flex-col justify-center items-start gap-6'>
           <p className='font-sans font-semibold text-xl text-gray-600'>Địa chỉ</p>
-          <p className='font-sans text-gray-500'>D3-5-201 Đại Học Bách Khoa Hà Nội <br /> Bách Khoa, Hai Bà Trưng, Hà Nội</p>
-          <p className='text-gray-500'>Tel: (123) 456-7890 <br /> Email: admin@sporter.com</p>
-          <p className='font-sans font-semibold text-xl text-gray-600'>Tuyển dụng tại Sporter</p>
+          <p className='font-sans text-gray-500'>B0-111 Đại Học Bách Khoa Hà Nội <br /> Bách Khoa, Hai Bà Trưng, Hà Nội</p>
+          <p className='text-gray-500'>Tel: (123) 456-7890 <br /> Email: contact@cyberxes.com</p>
+          <p className='font-sans font-semibold text-xl text-gray-600'>Tuyển dụng tại CyberXes</p>
           <p className='font-sans text-gray-500'>Hiện tại chưa có vị trí mới...</p>
           {/* <button className='border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500'>Explore Jobs</button> */}
         </div>

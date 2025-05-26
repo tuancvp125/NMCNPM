@@ -24,7 +24,7 @@ const Breadcrumbs = () => {
     "product-edit": "Chỉnh sửa sản phẩm",
     "user-edit": "Chỉnh sửa người dùng",
     "user-create": "Thêm mới người dùng",
-
+    "chat-management": "Quản lý chat",
   };
 
   useEffect(() => {

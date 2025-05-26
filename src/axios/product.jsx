@@ -122,9 +122,65 @@ async function deleteProductApi(authToken, id) {
     }
 }
 
+async function GetChatHistory(userEmail, productId) {
+  try {
+    const token = localStorage.getItem('authToken');
+    if (!token) throw new Error("Token not found. Please log in again.");
+
+    const response = await axios.get(`${API_URL}/chat/history`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      params: {
+        userEmail,
+        productId
+      }
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error('❌ Error getting chat history:', error.response?.data || error.message);
+    if (error.message.includes("Token")) {
+      error.isAuthError = true;
+    }
+    throw error;
+  }
+}
+
+async function SendChatMessage(userEmail, productId, content) {
+  try {
+    const token = localStorage.getItem('authToken');
+    if (!token) throw new Error("Token not found. Please log in again.");
+
+    const body = {
+      userEmail,
+      productId,
+      content,
+      isFromAdmin: false
+    };
+
+    const response = await axios.post(`${API_URL}/chat/send`, body, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error('❌ Error sending chat message:', error.response?.data || error.message);
+    if (error.message.includes("Token")) {
+      error.isAuthError = true;
+    }
+    throw error;
+  }
+}
+
 export { 
     getAllProductApi,
     createProductApi,
     updateProductApi,
-    deleteProductApi
+    deleteProductApi,
+    GetChatHistory,
+    SendChatMessage
 };

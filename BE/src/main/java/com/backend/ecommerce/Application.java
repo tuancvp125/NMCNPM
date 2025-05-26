@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableJpaRepositories
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+// @SpringBootApplication
 @EnableScheduling
 public class Application {
 

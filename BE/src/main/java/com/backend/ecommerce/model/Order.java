@@ -9,6 +9,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import java.time.LocalDateTime; // Thêm import này
+
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -40,6 +44,57 @@ public class Order {
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private OrderStatus status = OrderStatus.INITIATED;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "payment_status") // Trạng thái riêng cho thanh toán
+    private PaymentStatus paymentStatus;
+
+    @Column(name = "payment_gateway_order_id") // ID giao dịch từ cổng thanh toán
+    private String paymentGatewayOrderId;
+
+    @Column(name = "payment_url", length = 1024) // URL thanh toán từ cổng thanh toán
+    private String paymentUrl;
+
+    @Column(name = "last_updated_at")
+    private LocalDateTime lastUpdatedAt;
+
+    // Getters and Setters cho các trường mới
+    public PaymentStatus getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(PaymentStatus paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public String getPaymentGatewayOrderId() {
+        return paymentGatewayOrderId;
+    }
+
+    public void setPaymentGatewayOrderId(String paymentGatewayOrderId) {
+        this.paymentGatewayOrderId = paymentGatewayOrderId;
+    }
+
+    public String getPaymentUrl() {
+        return paymentUrl;
+    }
+
+    public void setPaymentUrl(String paymentUrl) {
+        this.paymentUrl = paymentUrl;
+    }
+
+    public LocalDateTime getLastUpdatedAt() {
+        return lastUpdatedAt;
+    }
+
+    public void setLastUpdatedAt(LocalDateTime lastUpdatedAt) {
+        this.lastUpdatedAt = lastUpdatedAt;
+    }
+
+    @PreUpdate // Hoặc @PrePersist và @PreUpdate nếu cần cả lúc tạo
+    protected void onUpdate() {
+        this.lastUpdatedAt = LocalDateTime.now();
+    }
 
     @JsonIgnore
     public OrderStatus getStatus() {

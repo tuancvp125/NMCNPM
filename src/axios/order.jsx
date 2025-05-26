@@ -291,6 +291,42 @@ async function GetAllOrderApi() {
     }
 }
 
+// HÀM MỚI CHO SEC404PAYMENT
+/**
+ * Khởi tạo thanh toán với Sec404Payment.
+ * Sẽ gọi API backend để tạo đơn hàng ban đầu và sau đó lấy URL thanh toán từ Sec404.
+ * @param {string} cartId - ID giỏ hàng của người dùng.
+ * @param {object} address - Địa chỉ giao hàng: { fullName, phone, street, city, district, ... }
+ * @param {string} token - JWT token xác thực người dùng.
+ * @returns {Promise<{ paymentUrl: string }>} - Trả về URL thanh toán nếu thành công.
+ */
+const initiateSec404PaymentCheckout = async (cartId, address, token) => {
+    try {
+        // API Backend: POST /api/sec404payment/initiate-checkout
+        // Nhận cartId làm query param và address làm request body
+        const response = await axios.post(
+            `${API_URL}/api/sec404payment/initiate-checkout?cartId=${cartId}`,
+            address, // address object là request body
+            {
+                headers: {
+                    'Content-Type': 'application/json', // Đảm bảo backend nhận đúng
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+        return response.data; // Mong đợi backend trả về { paymentUrl: "URL_CUA_SEC404" }
+    } catch (error) {
+        console.error("Error initiating Sec404 payment checkout:", error.response ? error.response.data : error.message);
+        // Ném lỗi để component PlaceOrder.jsx có thể bắt và hiển thị
+        // Bạn có thể muốn chuẩn hóa đối tượng lỗi trả về
+        const errData = error.response?.data;
+        if (errData && typeof errData === 'string') { // Nếu backend trả lỗi là string
+             throw new Error(errData);
+        }
+        throw errData || error;
+    }
+};
+
 export { 
     CreateCartApi, 
     GetCartApi, 
@@ -301,5 +337,6 @@ export {
     CheckOutCartApi, 
     Payment,
     GetAllOrderApi,
-    VNPay
+    VNPay,
+    initiateSec404PaymentCheckout
 };

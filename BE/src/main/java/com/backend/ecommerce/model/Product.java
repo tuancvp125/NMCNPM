@@ -3,11 +3,13 @@ package com.backend.ecommerce.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "products")
 public class Product {

@@ -21,10 +21,10 @@ const ProductItem = ({id,image,name,price, color, size, material, productConditi
       </div>
       <p className='pt-3 pb-1 text-sm'>{name}</p>
       <p className='text-sm font-medium'>{Intl.NumberFormat().format(price)}{currency}</p>
-      <p className='text-sm'>Color: {color}</p>
-      <p className='text-sm'>Size: {size}</p>
-      <p className='text-sm'>Material: {material}</p>
-      <p className='text-sm'>Condition: {productCondition}</p>
+      <p className='text-sm'>Màu: {color}</p>
+      <p className='text-sm'>Kích cỡ: {size}</p>
+      <p className='text-sm'>Chất liệu: {material}</p>
+      <p className='text-sm'>Tình trạng: {productCondition}</p>
     </Link>
   )
 }

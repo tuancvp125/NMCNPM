@@ -8,6 +8,7 @@ import  CartIcon  from "../Assets/sidebar/cart.svg";
 import  LogoutIcon  from "../Assets/sidebar/logout.svg";
 import  TruckIcon  from "../Assets/sidebar/truck.svg";
 import SettingIcon  from "../Assets/sidebar/setting.svg";
+import ChatIcon from "../Assets/sidebar/OIP.svg";
 import {LogoutApi} from '../../../../axios/axios'
 
 function Sidebar() {
@@ -55,6 +56,17 @@ function Sidebar() {
             <img src={UserIcon} className={styles.sideIcon} />
             Quản lý tài khoản
           </NavLink>
+          
+          <NavLink
+            to="/admin/chat-management"
+            className={({ isActive }) =>
+              isActive ? `${styles.menuItem} ${styles.active}` : styles.menuItem
+            }
+          >
+            <img src={ChatIcon} className={styles.sideIcon} />
+            Quản lý chat
+          </NavLink>
+          
           <NavLink
             to="/admin/category-management"
             className={({ isActive }) =>

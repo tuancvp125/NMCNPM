@@ -16,8 +16,12 @@ services:
   db:
     image: mysql:latest
     restart: always
+    ports:
+      - "3306:3306"
     volumes:
       - ./.docker/data/db:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: 05062004
-      MYSQL_DATABASE: ecommercedbtest
+      MYSQL_ROOT_PASSWORD: tuancvp125
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: test       # Tạo user mới
+      MYSQL_PASSWORD: 123456 # Mật khẩu user mới

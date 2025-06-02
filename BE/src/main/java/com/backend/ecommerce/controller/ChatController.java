@@ -34,7 +34,7 @@ public class ChatController {
         @RequestParam("file") MultipartFile file) {
 
         try {
-            ChatMessage message = chatService.saveFileMessage(userEmail, productId, isFromAdmin, file);
+            ChatMessage message = chatService.saveFileMessage(userEmail, productId, file, isFromAdmin);
             return ResponseEntity.ok(message);
         } catch (IOException e) {
             e.printStackTrace();

@@ -50,7 +50,7 @@ const WebChat = ({ productId, userEmail }) => {
         setError("Vui lòng đăng nhập lại.");
       } else {
         setError("Gửi tin nhắn thất bại.");
-        console.log("LỖIIIIIIIII: "+ err.message);
+        console.log("Lỗi gửi:", err.message);
       }
     }
   };
@@ -62,28 +62,8 @@ const WebChat = ({ productId, userEmail }) => {
     }
   };
 
-  const renderMessageContent = (msg) => {
-    if (!msg.isFile) {
-      return <span>{msg.content}</span>;
-    }
-
-    const isImage = msg.content.match(/\.(jpg|jpeg|png|gif|webp)$/i);
-    return isImage ? (
-      <img
-        src={msg.content}
-        alt="Ảnh đính kèm"
-        className="max-w-full h-auto rounded"
-      />
-    ) : (
-      <a
-        href={msg.content}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="underline text-blue-600"
-      >
-        📎 Tải file
-      </a>
-    );
+  const isImage = (filename) => {
+    return /\.(jpg|jpeg|png|gif)$/i.test(filename);
   };
 
   return (
@@ -97,19 +77,36 @@ const WebChat = ({ productId, userEmail }) => {
         ) : (
           chatLog.map((msg, idx) => (
             <div key={idx} className={`mb-2 ${msg.isFromAdmin ? 'text-left' : 'text-right'}`}>
-              <div
-                className={`inline-block px-3 py-2 rounded-lg max-w-[70%] break-words ${
-                  !msg.isFromAdmin ? 'bg-blue-100 text-blue-800' : 'bg-gray-200 text-gray-900'
-                }`}
-              >
-                {renderMessageContent(msg)}
+              <div className={`inline-block px-3 py-2 rounded-lg max-w-[70%] break-words ${
+                !msg.isFromAdmin ? 'bg-blue-100 text-blue-800' : 'bg-gray-200 text-gray-900'
+              }`}>
+                {msg.isFile ? (
+                  isImage(msg.content) ? (
+                    <img
+                      src={`http://localhost:9999${msg.content}`}
+                      alt="Ảnh đính kèm"
+                      className="max-w-[200px] rounded"
+                    />
+                  ) : (
+                    <a
+                      href={`http://localhost:9999${msg.content}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 underline"
+                    >
+                      📎 Tải file đính kèm
+                    </a>
+                  )
+                ) : (
+                  msg.content
+                )}
               </div>
             </div>
           ))
         )}
       </div>
 
-      <div className="flex mt-3 gap-2 items-center">
+      <div className="flex mt-3 gap-2">
         <input
           type="text"
           className="border p-2 rounded flex-1"
@@ -127,12 +124,9 @@ const WebChat = ({ productId, userEmail }) => {
           onChange={handleFileChange}
         />
         {file && (
-          <p className="text-sm text-gray-600 italic truncate max-w-[150px]">{file.name}</p>
+          <p className="text-sm text-gray-600 italic mt-1">Tệp đã chọn: {file.name}</p>
         )}
-        <button
-          onClick={sendMessage}
-          className="bg-black text-white px-4 py-2 rounded hover:bg-gray-700"
-        >
+        <button onClick={sendMessage} className="bg-black text-white px-4 py-2 rounded hover:bg-gray-700">
           Gửi
         </button>
       </div>

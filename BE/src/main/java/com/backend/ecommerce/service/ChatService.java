@@ -17,6 +17,9 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
+import static com.backend.ecommerce.config.FileStorageConfig.getUploadPath;
+
+
 @Service
 @RequiredArgsConstructor
 public class ChatService {
@@ -53,30 +56,31 @@ public class ChatService {
     }
 
     // Lưu tin nhắn dạng file upload MultipartFile
-    public ChatMessage saveFileMessage(String userEmail, String productId, boolean isFromAdmin, MultipartFile file) throws IOException {
+    public ChatMessage saveFileMessage(String userEmail, String productId, MultipartFile file, Boolean isFromAdmin) throws IOException {
         ChatTicket ticket = getOrCreateTicket(userEmail, productId);
 
-        // Thư mục lưu file
-        String uploadDir = "uploads/chat/";
-        Path uploadPath = Paths.get(uploadDir);
+        // Tạo thư mục nếu chưa tồn tại
+        Path uploadPath = getUploadPath();
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
         }
 
-        // Tạo tên file duy nhất (timestamp + tên gốc)
+        // Tạo tên file duy nhất
         String filename = System.currentTimeMillis() + "_" + StringUtils.cleanPath(file.getOriginalFilename());
         Path filePath = uploadPath.resolve(filename);
 
         // Lưu file vào hệ thống
         file.transferTo(filePath.toFile());
 
-        // Tạo message với content là đường dẫn file
+        // Trả lại đường dẫn để FE có thể truy cập
+        String fileUrl = "/uploads/chat/" + filename;
+
         ChatMessage message = ChatMessage.builder()
                 .ticket(ticket)
                 .senderEmail(isFromAdmin ? "admin" : userEmail)
-                .content("/uploads/chat/" + filename) // Bạn cần config serve static folder này
+                .content(fileUrl)
                 .isFromAdmin(isFromAdmin)
-                .isFile(true) // đánh dấu đây là file
+                .isFile(true)
                 .build();
 
         return messageRepo.save(message);

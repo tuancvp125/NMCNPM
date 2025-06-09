@@ -36,6 +36,7 @@ export const sendChatMessage = async (token, userEmail, productId, content, isFr
 
 // Gửi file đính kèm (tin nhắn dạng file)
 export const sendChatFile = async (token, userEmail, productId, file, isFromAdmin) => {
+  console.log("chat.jsx: "+ productId);
   const formData = new FormData();
   formData.append('userEmail', userEmail);
   formData.append('productId', productId);

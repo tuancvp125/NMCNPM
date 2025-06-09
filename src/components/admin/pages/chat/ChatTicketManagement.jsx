@@ -53,15 +53,15 @@ const ChatTicketManagement = () => {
     try {
 
       if (file) {
-        await sendChatFile(token, selectedTicket.userEmail, selectTicket.productId, file, true);
+        await sendChatFile(token, selectedTicket.userEmail, selectedTicket.productId, file, true);
       }
       
       if(reply.trim()){
         await sendChatMessage(token, selectedTicket.userEmail, selectedTicket.productId, reply, true);
       }
       
-      console.log("ChatTicketManagement: "+ selectTicket.productId);
-      
+      console.log("ChatTicketManagement ID: "+ selectTicket.productId);
+
       setReply('');
       setFile(null);
       selectTicket(selectedTicket); // refresh messages

@@ -33,6 +33,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .antMatchers("/auth/**").permitAll()
                 .antMatchers("/user/products/**").permitAll()
+                .antMatchers("/uploads/**").permitAll()
                 .antMatchers("/admin/**").hasAuthority(String.valueOf(Role.ADMIN))
                 .antMatchers("/api/**").permitAll()
                 .anyRequest().authenticated()

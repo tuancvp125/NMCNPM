@@ -24,6 +24,9 @@ public class ChatMessage {
     private String content;
 
     @Column(nullable = false)
+    private Boolean isFile = false;
+
+    @Column(nullable = false)
     private Boolean isFromAdmin; // 1 nếu admin gửi, 0 nếu user gửi
 
     private LocalDateTime timestamp;

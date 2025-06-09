@@ -33,3 +33,21 @@ export const sendChatMessage = async (token, userEmail, productId, content, isFr
   });
   return res.data;
 };
+
+// Gửi file đính kèm (tin nhắn dạng file)
+export const sendChatFile = async (token, userEmail, productId, file, isFromAdmin) => {
+  const formData = new FormData();
+  formData.append('userEmail', userEmail);
+  formData.append('productId', productId);
+  formData.append('isFromAdmin', isFromAdmin);
+  formData.append('file', file); // tên 'file' phải trùng với tên field mà backend mong đợi
+
+  const res = await axios.post(`${API_URL}/chat/send-file`, formData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data'
+    }
+  });
+
+  return res.data;
+};

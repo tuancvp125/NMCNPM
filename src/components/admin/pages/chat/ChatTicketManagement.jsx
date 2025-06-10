@@ -3,7 +3,8 @@ import styles from '../dashboard/Dashboard.module.css';
 import {
   getAllChatTickets,
   getChatHistory,
-  sendChatMessage
+  sendChatMessage,
+  sendChatFile
 } from '../../../../axios/chat';
 
 const ChatTicketManagement = () => {
@@ -11,6 +12,7 @@ const ChatTicketManagement = () => {
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [messages, setMessages] = useState([]);
   const [reply, setReply] = useState('');
+  const [file, setFile] = useState(null);
 
   const token = localStorage.getItem('authToken');
 
@@ -32,17 +34,36 @@ const ChatTicketManagement = () => {
     setSelectedTicket(ticket);
     try {
       const data = await getChatHistory(token, ticket.userEmail, ticket.productId);
+      //console.log("selectTicket ID: "+ticket.productId);
       setMessages(data);
     } catch (err) {
       console.error('Lỗi khi tải tin nhắn:', err);
     }
   };
 
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+    }
+  };
+
   const handleSend = async () => {
-    if (!reply.trim()) return;
+    if (!reply.trim() && !file) return;
     try {
-      await sendChatMessage(token, selectedTicket.userEmail, selectedTicket.productId, reply, true);
+
+      if (file) {
+        await sendChatFile(token, selectedTicket.userEmail, selectedTicket.productId, file, true);
+      }
+      
+      if(reply.trim()){
+        await sendChatMessage(token, selectedTicket.userEmail, selectedTicket.productId, reply, true);
+      }
+      
+      console.log("ChatTicketManagement ID: "+ selectTicket.productId);
+
       setReply('');
+      setFile(null);
       selectTicket(selectedTicket); // refresh messages
     } catch (err) {
       console.error('Gửi tin nhắn thất bại:', err);
@@ -106,7 +127,15 @@ const ChatTicketManagement = () => {
                       msg.isFromAdmin ? 'bg-blue-100 text-blue-900' : 'bg-gray-200 text-gray-800'
                     }`}
                   >
-                    {msg.content}
+                    {msg.content.match(/\.(jpg|jpeg|png|gif)$/i) ? (
+                      <img
+                        src={`http://localhost:9999${msg.content}`}
+                        alt="chat-img"
+                        className="max-w-full h-auto rounded"
+                      />
+                    ) : (
+                      <span>{msg.content}</span>
+                    )}
                   </span>
                 </div>
               ))}
@@ -118,6 +147,18 @@ const ChatTicketManagement = () => {
                 placeholder="Nhập tin nhắn..."
                 className="border p-2 flex-1 rounded"
               />
+              <label htmlFor="fileInput" className="cursor-pointer text-xl px-2">
+                🧷
+              </label>
+              <input
+                id="fileInput"
+                type="file"
+                className="hidden"
+                onChange={handleFileChange}
+              />
+              {file && (
+                <p className="text-sm text-gray-600 italic mt-1">Tệp đã chọn: {file.name}</p>
+              )}
               <button onClick={handleSend} className="bg-black text-white px-4 py-2 rounded">
                 Gửi
               </button>
